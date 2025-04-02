@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance of capitals of the World</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript">
+        function getSelect() {
+            //Create an object of class XMLHttpRequest access a file at the serbe
+            //since the file will access a database then we choose to write it in PHP
+            //it depend on the browser
+            if(window.XMLHttpRequest) var commAgent = new XMLHttpRequest();
+            else var commAgent = new ActiveXObject("Microsoft.XMLHTTP");//IE only
+
+            //open communication with a server's PHP program - Asynchronimus. 
+            commAgent.open("GET", "capitals.php", true);
+            commAgent.send(null);
+
+            //checking if the communication was done
+            //anonymous function
+            commAgent.onreadystatechange = function() {
+                //get the response from the server / Checking handshakes and Http response
+                if(commAgent.readyState == 4 && commAgent.status == 200) {
+                    //take the responde from the server's program
+                    //and place it at the page's placeholder
+                   document.getElementById("showSelect").innerHTML = commAgent.responseText;
+                    //create the select element
+                    createSelect(commAgent.responseText);
+                }
+            };
+        
+
+            //var showSelectDiv = document.getElementById("showSelect");
+            //showSelectDiv.appendChild(select);
+        }
+
+        function getDistance() {
+            var selectedCapital = document.getElementById("capitalsSelect").value;
+            alert("The distance from New York to " + selectedCapital + " is 5000 km (example)."); // Replace with actual distance calculation
+        }
+    </script>
+    </head>
+    <body onload="getSelect()">
+        <h2>DISTANCE NY TO THE WORLD</h2>
+        <br>
+        <div id="showSelect"></div>
+    </body>
+</html>
