@@ -30,20 +30,32 @@
                 }
             };
         
+            //create  a function
+            function showDistance() {
+                // Get the value of the selected option
+                var selectedCapital = document.getElementById("countryList").value;
 
-            //var showSelectDiv = document.getElementById("showSelect");
-            //showSelectDiv.appendChild(select);
-        }
+                // Split the selected value into individual elements
+                var country = selectedCapital.split(",")[0];
+                var capital = selectedCapital.split(",")[1];
+                var miles = selectedCapital.split(",")[2];
+                var km = selectedCapital.split(",")[3];
 
-        function getDistance() {
-            var selectedCapital = document.getElementById("capitalsSelect").value;
-            alert("The distance from New York to " + selectedCapital + " is 5000 km (example)."); // Replace with actual distance calculation
-        }
+                // Display the message in an alert
+                alert("The distance from New York to " + country + ", " + capital + " is " + km + " km.");
+
+                // Display the message on the page
+                document.getElementById("showOutPut").innerHTML =
+                    "The distance from New York, USA to " + capital + " (" + country + ") is " + miles +
+                    " miles or " + km + " km.";
+            }
+        }    
     </script>
-    </head>
-    <body onload="getSelect()">
-        <h2>DISTANCE NY TO THE WORLD</h2>
-        <br>
-        <div id="showSelect"></div>
-    </body>
+</head>
+<body onload="getSelect()">
+    <h2>DISTANCE NY TO THE WORLD</h2>
+    <br>
+    <div id="showSelect"></div>
+    <div id="showOutPut"></div>
+</body>
 </html>
