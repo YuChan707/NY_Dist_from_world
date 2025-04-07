@@ -6,7 +6,8 @@
     <title>Distance of capitals of the World</title>
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript">
-        function getSelect() {
+        function getSelect() 
+        {
             //Create an object of class XMLHttpRequest access a file at the serbe
             //since the file will access a database then we choose to write it in PHP
             //it depend on the browser
@@ -25,10 +26,9 @@
                     //take the responde from the server's program
                     //and place it at the page's placeholder
                    document.getElementById("showSelect").innerHTML = commAgent.responseText;
-                    //create the select element
-                    createSelect(commAgent.responseText);
                 }
             };
+        }    
         
             //create  a function
             function showDistance() {
@@ -49,7 +49,7 @@
                     "The distance from New York, USA to " + capital + " (" + country + ") is " + miles +
                     " miles or " + km + " km.";
             }
-        }    
+            
     </script>
 </head>
 <body onload="getSelect()">

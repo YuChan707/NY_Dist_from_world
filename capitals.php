@@ -10,8 +10,8 @@
         $numreading = 1;
 
         //send back the start of the select e,ement to the HTML page
-        print("<select name='countryList' onchange='showDistance()'>\n");
-        print("<option value=''>Select a country</option>\n");
+        print("<select id='countryList' onchange='showDistance()'>");//id not name
+        print("<option value=''>Select a country</option>");
 
         //loop throught
         while (($recordArray = fgetcsv($fileStream, 0, ",")) !== FALSE) {
@@ -30,12 +30,12 @@
                 //but first let's put togerger the value of the option
                 $optionValue = $country . "," . $capital . "," . $miles . "," . $km;
                 //now send the option to HTML
-                print("<option value='".$optionValue."'>".$country.",".$capital."</option>\n");
+                print("<option value='".$optionValue."'>".$country.",".$capital."</option>");
             }
         }//end of the while loop
 
         //send back the close of select element
-        print("</select>\n");
+        print("</select>");
 
         //close the file stream 
         fclose($fileStream);
